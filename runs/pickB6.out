@@ -1,0 +1,16 @@
+pickB6 | subtype success | turns 5 | tool calls 4 | cost $0.056 | out tokens 535
+   1. list_tables {}
+   2. top_customers {}
+   3. describe_table {"table": "orders"}
+   4. run_query {"sql": "SELECT c.id, c.name, SUM(o.total_eur) AS spent, COUNT(*) AS n FROM orders o JOIN customers c ON c.id=
+RESULT: **Ben Okafor** has spent the most: **€165.00** in total, across 2 orders.
+
+| Customer | Total spent | Orders |
+|---|---|---|
+| Ben Okafor | €165.00 | 2 |
+| Ana Costa | €128.00 | 2 |
+| Chen Wei | €90.00 | 2 |
+| Emil Hansen | €75.00 | 1 |
+| Dora Novak | €19.00 | 1 |
+
+I worked this out by adding up each customer's order totals in the database. The built-in `top_customers` tool doesn't answer this que

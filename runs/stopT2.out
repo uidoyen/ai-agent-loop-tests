@@ -1,0 +1,5 @@
+stopT2 | subtype error_max_turns | turns 3 | tool calls 3 | cost $0.027 | out tokens 149
+   1. list_tables {}
+   2. describe_table {"table": "orders"}
+   3. describe_table {"table": "customers"}
+RESULT: 

@@ -1,0 +1,194 @@
+{
+ "duration_api_ms": 18430,
+ "stop_reason": "end_turn",
+ "total_cost_usd": 0.0662048,
+ "usage": {
+  "input_tokens": 10,
+  "cache_creation_input_tokens": 5415,
+  "cache_read_input_tokens": 18424,
+  "output_tokens": 958,
+  "output_tokens_details": {
+   "thinking_tokens": 120
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 5415,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 363,
+    "cache_read_input_tokens": 5017,
+    "cache_creation_input_tokens": 398,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 398
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "modelUsage": {
+  "claude-opus-5-5": {
+   "inputTokens": 10,
+   "outputTokens": 958,
+   "cacheReadInputTokens": 18424,
+   "cacheCreationInputTokens": 5415,
+   "webSearchRequests": 0,
+   "costUSD": 0.0662048,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 120,
+   "cacheCreationEphemeral5mInputTokens": 0,
+   "cacheCreationEphemeral1hInputTokens": 5415,
+   "canonicalModel": "claude-opus-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "permission_denials": [],
+ "terminal_reason": "completed",
+ "fast_mode_state": "off",
+ "fast_mode_disabled_reason": "sdk_opt_in_required",
+ "subagent_stats": {
+  "spawned": 0,
+  "requested": {
+   "background": 0,
+   "foreground": 0,
+   "unset": 0
+  },
+  "started_in_background": 0,
+  "max_depth": 0,
+  "spawned_by_subagents": 0,
+  "completed": 0,
+  "failed": 0,
+  "killed": {
+   "parent": 0,
+   "user": 0,
+   "system": 0
+  },
+  "refused": {
+   "depth_limit": 0,
+   "concurrency_limit": 0,
+   "budget": 0
+  },
+  "by_type": {}
+ },
+ "safety_stops": 0,
+ "is_error": false,
+ "num_turns": 7,
+ "subtype": "success",
+ "api_error_status": null,
+ "result": "Ben Okafor has spent **\u20ac165.00** in total, based on the raw order rows.\n\nThe `customer_total` tool gave a different answer, \u20ac410.00, which doesn't match the database. Here are Ben Okafor's orders (customer id 2, the only customer with that name):\n\n| Order | Item | Date | Total (EUR) |\n|---|---|---|---|\n| 8 | Mouse | 2026-08-19 | 45.00 |\n| 3 | Keyboard | 2026-09-02 | 120.00 |\n| | **Sum** | | **165.00** |\n\nTo check the rest of the data, I added up every customer's orders. Those totals come to \u20ac477, the same as the sum of all 8 orders in the table, so no orders are missing or linked to the wrong customer. The \u20ac410 doesn't match any customer's total or any obvious combination of orders. The `customer_total` tool looks broken, so check it before using it for anything else.",
+ "ttft_ms": 3504,
+ "type": "result",
+ "duration_ms": 21484,
+ "ttft_stream_ms": 2966,
+ "time_to_request_ms": 718,
+ "time_to_request_phases_ms": {
+  "other": 4,
+  "system_prompt": 25,
+  "resume_other": 0,
+  "process_user_input": 2,
+  "input_attachments": 7,
+  "input_hooks": 2,
+  "conversation_append": 0,
+  "transcript_persist": 4,
+  "tool_pool_refresh": 2,
+  "init_message": 9,
+  "init_frame_send": 5,
+  "engine_pickup": 5,
+  "loop_entry": 3,
+  "message_prep": 1,
+  "model_config_wait": 1,
+  "autocompact": 1,
+  "request_announcements": 3,
+  "query_setup": 1,
+  "model_gates": 633,
+  "tool_schema_build": 2,
+  "message_normalization": 2,
+  "client_creation": 2,
+  "request_build": 4
+ },
+ "turn_start_resume_kind": "none",
+ "process_turn_index": 0,
+ "time_to_request_loop_lag_ms": 25,
+ "time_to_request_cpu_ms": 216,
+ "time_to_request_major_faults": 67,
+ "input_attachments_detail": {
+  "slowest_producer": "model",
+  "slowest_producer_ms": 1,
+  "cpu_ms": 9,
+  "major_faults": 5,
+  "setup_ms": 0,
+  "prompt_producers_ms": 0,
+  "ambient_start_ms": 3,
+  "ambient_wait_ms": 1,
+  "render_ms": 1,
+  "producers": 40,
+  "token_counts": 0
+ },
+ "tool_schema_build_detail": {
+  "betas_ms": 0,
+  "waits_ms": 1,
+  "placement_ms": 0,
+  "render_ms": 1,
+  "after_ms": 0,
+  "other_ms": 0,
+  "tools": 4,
+  "new_schemas": 4
+ },
+ "message_normalization_detail": {
+  "before_ms": 0,
+  "normalize_ms": 2,
+  "images_ms": 0,
+  "post_process_ms": 0,
+  "after_ms": 0,
+  "other_ms": 0,
+  "messages": 8,
+  "wire_messages": 2
+ },
+ "request_build_detail": {
+  "records_ms": 0,
+  "system_ms": 1,
+  "headers_ms": 0,
+  "cache_break_record_ms": 1,
+  "plans_ms": 1,
+  "retry_setup_ms": 0,
+  "sent_build_ms": 0,
+  "record_attempt_ms": 1,
+  "other_ms": 0,
+  "sent_build_safety_context_ms": 0,
+  "sent_build_cache_breakpoints_ms": 0,
+  "sent_build_surrogate_scan_ms": 0
+ },
+ "first_content_frame_ms": 2966,
+ "queued_turn_count": 0,
+ "result_index": 0,
+ "model_usage_since_last_result": {
+  "claude-opus-5-5": {
+   "inputTokens": 10,
+   "outputTokens": 958,
+   "cacheReadInputTokens": 18424,
+   "cacheCreationInputTokens": 5415,
+   "webSearchRequests": 0,
+   "costUSD": 0.0662048,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 120,
+   "cacheCreationEphemeral5mInputTokens": 0,
+   "cacheCreationEphemeral1hInputTokens": 5415,
+   "canonicalModel": "claude-opus-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ }
+}

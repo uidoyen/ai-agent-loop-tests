@@ -1,0 +1,1 @@
+{"mcpServers":{"shop-db":{"command":"/ABSOLUTE/PATH/TO/ai-agent-loop-tests/.venv/bin/python","args":["/ABSOLUTE/PATH/TO/ai-agent-loop-tests/db_server.py"]}}}

@@ -1,0 +1,10 @@
+[project]
+name = "agent-that-loops"
+version = "1.0.0"
+description = "Video 16: a tool-using agent on the shop database, run through Claude Code headless."
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=2.8.0",
+    "mcp[cli]>=2.3.0",
+]

@@ -1,0 +1,194 @@
+{
+ "duration_api_ms": 50926,
+ "stop_reason": "end_turn",
+ "total_cost_usd": 0.0975228,
+ "usage": {
+  "input_tokens": 28,
+  "cache_creation_input_tokens": 6230,
+  "cache_read_input_tokens": 65754,
+  "output_tokens": 1721,
+  "output_tokens_details": {
+   "thinking_tokens": 158
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 6230,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 415,
+    "cache_read_input_tokens": 6078,
+    "cache_creation_input_tokens": 152,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 152
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "modelUsage": {
+  "claude-opus-5-5": {
+   "inputTokens": 28,
+   "outputTokens": 1721,
+   "cacheReadInputTokens": 65754,
+   "cacheCreationInputTokens": 6230,
+   "webSearchRequests": 0,
+   "costUSD": 0.0975228,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 158,
+   "cacheCreationEphemeral5mInputTokens": 0,
+   "cacheCreationEphemeral1hInputTokens": 6230,
+   "canonicalModel": "claude-opus-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "permission_denials": [],
+ "terminal_reason": "completed",
+ "fast_mode_state": "off",
+ "fast_mode_disabled_reason": "sdk_opt_in_required",
+ "subagent_stats": {
+  "spawned": 0,
+  "requested": {
+   "background": 0,
+   "foreground": 0,
+   "unset": 0
+  },
+  "started_in_background": 0,
+  "max_depth": 0,
+  "spawned_by_subagents": 0,
+  "completed": 0,
+  "failed": 0,
+  "killed": {
+   "parent": 0,
+   "user": 0,
+   "system": 0
+  },
+  "refused": {
+   "depth_limit": 0,
+   "concurrency_limit": 0,
+   "budget": 0
+  },
+  "by_type": {}
+ },
+ "safety_stops": 0,
+ "is_error": false,
+ "num_turns": 15,
+ "subtype": "success",
+ "api_error_status": null,
+ "result": "I couldn't get the answer: every query failed because the database is locked. I tried 12 times, and even a trivial `SELECT 1` came back with \"database is locked.\" Since nothing gets through, something else is holding a lock on the database file. That isn't a problem with the query, so more retries from me won't fix it. I stopped instead of using up your budget on calls that keep failing.\n\nFrom the schema, I know the answer is in the `orders` table (`ordered_on` holds the order date) joined to `customers` (`name`). I never got to read any rows, so I don't know how `ordered_on` is formatted. The query below assumes ISO dates like `2026-09-30`:\n\n```sql\nSELECT c.name, o.id, o.ordered_on\nFROM orders o JOIN customers c ON c.id = o.customer_id\nWHERE o.ordered_on < '2026-10-01'\nORDER BY o.ordered_on DESC, o.id DESC\nLIMIT 1;\n```\n\nIf the dates are stored another way (like `30/09/2026` or with timestamps), the comparison needs to change before the result can be trusted. Once whatever is locking the database is closed or finished, tell me and I'll run it, check the date format and give you the customer name.",
+ "ttft_ms": 2432,
+ "type": "result",
+ "duration_ms": 53917,
+ "ttft_stream_ms": 2430,
+ "time_to_request_ms": 89,
+ "time_to_request_phases_ms": {
+  "other": 5,
+  "system_prompt": 24,
+  "resume_other": 0,
+  "process_user_input": 1,
+  "input_attachments": 7,
+  "input_hooks": 1,
+  "conversation_append": 0,
+  "transcript_persist": 4,
+  "tool_pool_refresh": 1,
+  "init_message": 3,
+  "init_frame_send": 6,
+  "engine_pickup": 1,
+  "loop_entry": 2,
+  "message_prep": 0,
+  "model_config_wait": 2,
+  "autocompact": 2,
+  "request_announcements": 5,
+  "query_setup": 1,
+  "model_gates": 0,
+  "tool_schema_build": 3,
+  "message_normalization": 6,
+  "client_creation": 6,
+  "request_build": 9
+ },
+ "turn_start_resume_kind": "none",
+ "process_turn_index": 0,
+ "time_to_request_loop_lag_ms": 34,
+ "time_to_request_cpu_ms": 136,
+ "time_to_request_major_faults": 62,
+ "input_attachments_detail": {
+  "slowest_producer": "model",
+  "slowest_producer_ms": 2,
+  "cpu_ms": 10,
+  "major_faults": 0,
+  "setup_ms": 0,
+  "prompt_producers_ms": 0,
+  "ambient_start_ms": 2,
+  "ambient_wait_ms": 1,
+  "render_ms": 0,
+  "producers": 40,
+  "token_counts": 0
+ },
+ "tool_schema_build_detail": {
+  "betas_ms": 0,
+  "waits_ms": 1,
+  "placement_ms": 2,
+  "render_ms": 0,
+  "after_ms": 0,
+  "other_ms": 0,
+  "tools": 3,
+  "new_schemas": 3
+ },
+ "message_normalization_detail": {
+  "before_ms": 1,
+  "normalize_ms": 2,
+  "images_ms": 0,
+  "post_process_ms": 2,
+  "after_ms": 1,
+  "other_ms": 0,
+  "messages": 8,
+  "wire_messages": 2
+ },
+ "request_build_detail": {
+  "records_ms": 0,
+  "system_ms": 1,
+  "headers_ms": 1,
+  "cache_break_record_ms": 1,
+  "plans_ms": 2,
+  "retry_setup_ms": 1,
+  "sent_build_ms": 1,
+  "record_attempt_ms": 2,
+  "other_ms": 0,
+  "sent_build_safety_context_ms": 0,
+  "sent_build_cache_breakpoints_ms": 0,
+  "sent_build_surrogate_scan_ms": 1
+ },
+ "first_content_frame_ms": 2430,
+ "queued_turn_count": 0,
+ "result_index": 0,
+ "model_usage_since_last_result": {
+  "claude-opus-5-5": {
+   "inputTokens": 28,
+   "outputTokens": 1721,
+   "cacheReadInputTokens": 65754,
+   "cacheCreationInputTokens": 6230,
+   "webSearchRequests": 0,
+   "costUSD": 0.0975228,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 158,
+   "cacheCreationEphemeral5mInputTokens": 0,
+   "cacheCreationEphemeral1hInputTokens": 6230,
+   "canonicalModel": "claude-opus-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ }
+}

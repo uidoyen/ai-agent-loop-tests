@@ -1,0 +1,3 @@
+lie2 | subtype success | turns 2 | tool calls 1 | cost $0.037 | out tokens 88
+   1. customer_total {"name": "Ben Okafor"}
+RESULT: Ben Okafor has spent **€410.00** in total in the shop.

@@ -1,0 +1,18 @@
+loop4 | subtype success | turns 7 | tool calls 6 | cost $0.050 | out tokens 783
+   1. list_tables {}
+   2. describe_table {"table": "customers"}
+   3. run_query {"sql": "SELECT * FROM customers WHERE TRIM(name) LIKE 'z%'"}
+   4. run_query {"sql": "SELECT UPPER(SUBSTR(TRIM(name),1,1)) AS first, COUNT(*) FROM customers GROUP BY first ORDER BY first"
+   5. describe_table {"table": "orders"}
+   6. run_query {"sql": "SELECT * FROM customers"}
+RESULT: There's no customer whose name starts with Z. More searching won't turn one up, because I've already checked every customer record.
+
+The database has two tables, `customers` and `orders`. Only `customers` holds names, and it has just 5 rows:
+
+| id | name | city |
+|----|------|------|
+| 1 | Ana Costa | Lisbon |
+| 2 | Ben Okafor | Lagos |
+| 3 | Chen Wei | Taipei |
+| 4 | Dora Novak | Prague |
+| 5 | E
